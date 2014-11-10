@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>Regression and Confidence</title>
+	<meta name="description" content="Regression and Confidence">
+	<meta name="author" content="Sherri Verdugo">
+	<meta name="generator" content="slidify" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/core/deck.core.css">
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/status/deck.status.css">
+<!-- Style theme. More available in /themes/style/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/transition/horizontal-slide.css">
+	<script src="libraries/frameworks/deckjs/modernizr.custom.js"></script>
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/highlighters/deck.js/css/solarized_light.css">
+	
+	  <link rel="stylesheet" href = "libraries/widgets/quiz/css/demo.css">
+<link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+
+<body class="deck-container">
+
+  <!-- Begin slides -->
+  <section class="slide " id="slide-1">
+  <h2>Topics of Interest</h2>
+  <ol>
+<li>Review</li>
+<li>Confidence</li>
+<li>Correlation and Regression: Chapter 13 </li>
+<li>Regression: Chapter 14</li>
+</ol>
+
+</section>
+<section class="slide class" id="id">
+  <h2>Review: Evaluating a situation</h2>
+  <p>The process of making inferences from statistics is often a challenging one. The following steps are used to present data to an audience. </p>
+
+<p>Step 1: Evaluate the question then select the test that is appropriate based on the context of the question.  </p>
+
+<p>Step 2: Write the null (\(H_0\)) and alternative (\(H_a1\)) hypotheses for evaluation.</p>
+
+<p>Step 3: Evaluate the critical level for testing the test statistic. This is based on the pre-defined level of \(\alpha\).</p>
+
+<p>Step 4: Calculate the appropriate statistic (z, t, etc.).  </p>
+
+<p>Step 5: Compare the calculated statistic with the critical (significant value).</p>
+
+<p>Step 6: Write your decision using the decision rule that is specific for a test statistic that you calculated in step 4.</p>
+
+</section>
+<section class="slide " id="slide-3">
+  
+  <p><img src="singletest.jpg" alt="singletest"></p>
+
+</section>
+<section class="slide " id="slide-4">
+  
+  <p><img src="multigroup.jpg" alt="multigroup"></p>
+
+</section>
+<section class="slide " id="slide-5">
+  <h2>Review: Hypotheses</h2>
+  <h3>Non-Parametric hypotheses</h3>
+
+<ul>
+<li>Description: There is no previous knowledge about the population or the population parameters, however, you still need to test hypotheses. Sometimes known as &quot;distribution free tests.&quot;</li>
+<li>Useful for testing if group means or medians are distributed the same across groups. </li>
+<li>Usually used when we do not know if the data follows a &quot;normal distribution.&quot;</li>
+<li>Hypotheses:
+
+<ul>
+<li>Single Sample or more</li>
+<li>Can be directional or non-directional based on statistical test restrictions
+
+<ul>
+<li>Null (\(H_0\)): Population = 0</li>
+<li>Alt  (\(H_1\)): Population \(\neq\) 0</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>Examples of test statistics</h3>
+
+<ul>
+<li>Chi-Square, Mann-Whitney, rank-sum test, Kruskal-Wallis test</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-6">
+  <h2>Review: Hypotheses</h2>
+  <h3>Parametric hypotheses</h3>
+
+<p>*Description: The information about the population is completely known by means of the parameters.</p>
+
+<ul>
+<li>Hypotheses can be directional, non-directional, and can be used for one group or more (depending on the test statistic selected). </li>
+<li>Single Directional (one-tail):
+
+<ul>
+<li>\(H_0: \bar{x} = \mu\) and \(H_1: \bar{x} > or < \mu\) </li>
+</ul></li>
+<li>Single Non-Directional (two-tail):
+
+<ul>
+<li>\(H_0: \bar{x} = \mu\) and \(H_1: \bar{x} \neq \mu\)</li>
+</ul></li>
+<li>Multi Directional (one-tail):
+
+<ul>
+<li>\(H_0: \bar{x_1} = \bar{x_2} =...\bar{x_n}\)</li>
+<li>\(H_1: \bar{x_1} > \bar{x_2} >...> \bar{x_n}\), etc.</li>
+</ul></li>
+<li>Multi Non-Directional (two-tail):
+
+<ul>
+<li>\(H_0: \bar{x_1} = \bar{x_2} =...\bar{x_n}\)</li>
+<li>\(H_1: \bar{x_1} \neq \bar{x_2} \neq...\neq \bar{x_n}\)</li>
+</ul></li>
+</ul>
+
+<h3>Examples of test-statistics</h3>
+
+<ul>
+<li>z-test, t-test, f-test, ANOVA, regression</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-7">
+  <h2>Review: Parametric Statistics</h2>
+  <h3>z-test single sample</h3>
+
+<p>Distribution must be normal and the population standard deviation is known. This is more powerful compared to the t-test single sample. This test is only used when <em>THE POPULATION STANDARD DEVIATION</em> is known.</p>
+
+<h3>t-test single sample</h3>
+
+<p>Distribution must be normal, however, the standard deviation for the population is unknown. This is used in place of the &quot;z-test&quot; for single samples when the population standard deviation is <em>NOT KNOWN</em>.</p>
+
+<h3>t-test dependent/matched samples</h3>
+
+<p>Requires the same assumptions for the t-test single sample. Data must be matched in pairs. </p>
+
+<h3>t-test independent</h3>
+
+<p>Requires the same assumptions for the t-test single sample. Data is NOT matched.</p>
+
+<h3>ANOVA</h3>
+
+<p>Compares sample means that can be used to compare more than two means. ANOVA is a robust test, meaning that even when underlying assumptions are violated, the test is still accurate. Assumption: equal population variances. </p>
+
+<h3>Upcoming: Confidence Intervals, Correlation and Regression</h3>
+
+</section>
+<section class="slide " id="slide-8">
+  <h2>Review: Alpha levels</h2>
+  <ul>
+<li>\(\alpha=.10\): Extremely lenient and rarely used alpha level</li>
+<li>\(\alpha=.05\): Frequently used lenient alpha level</li>
+<li>\(\alpha=.01\): Frequently used restrictive alpha level</li>
+<li>\(\alpha=.001\): Rarely used because it is the MOST restrictive alpha level</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-9">
+  <h2>Review: Types of errors</h2>
+  <ul>
+<li>Alpha (Type I Error): An error made in deciding to reject the null hypothesis when the null hypothesis is TRUE.</li>
+<li>Beta (Type II Error): An error made in deciding to retain the null hypothesis when the null hypothesis is FALSE.</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Decision</th>
+<th>\(\; \; H_0\) is True</th>
+<th>\(\; \; H_0\) is False</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Retain \(H_0\)</td>
+<td>\(\;\) <strong>Correct</strong> Decision</td>
+<td>\(\;\) Type II Error \(\beta\)</td>
+</tr>
+<tr>
+<td>Reject \(H_0\)</td>
+<td>\(\;\) Type I Error \(\alpha\)</td>
+<td>\(\;\) <strong>POWER</strong></td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide " id="slide-10">
+  <h2>Revisiting Confidence:</h2>
+  <h3>Conceptual</h3>
+
+<p>Recall from Chapter 8 that we are talking about interval estimation and confidence intervals. The level of confidence is 1-alpha.</p>
+
+<ul>
+<li><p><strong>Interval Estimation</strong>: An interval of scores that is established, within which a population&#39;s mean (or another parameter) is likely to fall, when that parameter is being estimated from sample data.</p></li>
+<li><p><strong>Confidence Interval (for means and proportions)</strong>: An estimated interval within which we are &quot;confident&quot; -based on sampling theory- that the parameter we are are trying to estimate will fall.</p></li>
+</ul>
+
+</section>
+<section class="slide " id="slide-11">
+  <h2>Revisiting Interval Estimation</h2>
+  <h3>\(z\): large samples</h3>
+
+<table><thead>
+<tr>
+<th>Confidence Level</th>
+<th>z</th>
+<th>Confidence Level</th>
+<th>z</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0.70</td>
+<td>\(\;\) 1.04</td>
+<td>\(\;\) 0.92</td>
+<td>\(\;\) 1.75</td>
+</tr>
+<tr>
+<td>0.75</td>
+<td>\(\;\) 1.15</td>
+<td>\(\;\) <strong>0.95</strong></td>
+<td>\(\;\) <strong>1.96</strong></td>
+</tr>
+<tr>
+<td>0.80</td>
+<td>\(\;\) 1.28</td>
+<td>\(\;\) 0.96</td>
+<td>\(\;\) 2.05</td>
+</tr>
+<tr>
+<td>0.85</td>
+<td>\(\;\) 1.44</td>
+<td>\(\;\) <strong>0.98</strong></td>
+<td>\(\;\) <strong>2.33</strong></td>
+</tr>
+<tr>
+<td><strong>0.90</strong></td>
+<td>\(\;\) <strong>1.645</strong></td>
+<td>\(\;\) <strong>0.99</strong></td>
+<td>\(\;\) <strong>2.58</strong></td>
+</tr>
+</tbody></table>
+
+<h3>95% Interval Estimation</h3>
+
+<ul>
+<li>\(\bar{x} \pm z_{\frac{\alpha}{2}}*\sigma_{\bar{x}}\)</li>
+<li>\(\bar{x} \pm 1.96(\frac{\sigma}{\sqrt{n}})\)</li>
+</ul>
+
+<h3>99% Interval Estimation</h3>
+
+<ul>
+<li>\(\bar{x} \pm z_{\frac{\alpha}{2}}*\sigma_{\bar{x}}\)</li>
+<li>\(\bar{x} \pm 2.58(\frac{\sigma}{\sqrt{n}})\)</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-12">
+  <h2>Example: 95 Confidence Intervals</h2>
+  <ul>
+<li>Scenario: A sample of 100 observations are collected and yields \(\bar{x}=75\), with \(sd=8\). Find a 95% Confidence Interval for the true population average.</li>
+<li>Equation: 
+
+<ul>
+<li>\(\bar{x} \pm z_{\frac{\alpha}{2}}*\sigma_{\bar{x}}\)</li>
+<li>\(\bar{x} \pm 1.96(\frac{\sigma}{\sqrt{n}})\)</li>
+</ul></li>
+<li>Solution:<br></li>
+</ul>
+
+<p>\(CI=75 \pm * \frac{8}{\sqrt{100}}\) which is \(75 \pm 1.568\).  </p>
+
+<ul>
+<li>Upper limit: \(75 + 1.68 = 76.568\) and Lower limit: \(75 - 1.68 = 73.432\)</li>
+</ul>
+
+<p>The 95% confidence interval for this problem: (\(73.432\), \(76.568\))</p>
+
+</section>
+<section class="slide " id="slide-13">
+  <h2>Example: 99 Confidence Intervals, Lg.</h2>
+  <ul>
+<li>Scenario: A sample of 64 observations are collected and yields \(\bar{x}=55\), with \(sd=10\). Find a 99% Confidence Interval for the true population average.</li>
+<li>Equation: \(\bar{x} \pm z_{\frac{\alpha}{2}}*\sigma_{\bar{x}}\)</li>
+<li>Solution: \(\bar{x} \pm 2.58(\frac{\sigma}{\sqrt{n}})\) which is \(55 \pm 2.58(\frac{10}{\sqrt{64}})\). </li>
+<li>The upper boundary is: \(55 + 2.58(\frac{10}{\sqrt{64}})\). \(55+2.58(\frac{10}{8})\) becomes \(55+3.23=58.23\)</li>
+<li>The lower boundary is: \(55-2.58(\frac{10}{\sqrt{64}})\). \(55-2.58(\frac{10}{8})\) becomes \(55-3.23=51.77\)</li>
+<li>The 99% confidence interval for this problem: (\(51.77\), \(58.23\))</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-14">
+  <h2>Conf. Intervals for Proportions</h2>
+  <p>Equation: \(P_s \pm z_{\frac{\alpha}{2}}*\sqrt{\frac{P_p*Q_p}{n}}\)</p>
+
+<h3>Example 95% Confidence Interval Proportion:</h3>
+
+<p>A campaign manager for a senator has hired you to construct a 95% confidence interval. The phone research team has conducted 900 phone interviews. The find that the senator has a 53% lead. How likely does the percentage lead reflect the actual electorate?</p>
+
+<p>Hint: this is a proportion confidence interval with large sample. You have a good idea that the CLT and large sample size allows you to use a confidence interval equation for \(z\).</p>
+
+<ul>
+<li>\(P_s=.53\): candidate&#39;s proportion of support in the sample.</li>
+<li>\(P_p=P_s=.53\): candidate&#39;s proportion of support in the population...estimated</li>
+<li>\(Q_p=1-P_p=1-P_s=1-.53=.47\): The opponent&#39;s proportion of support in the population, estimated.</li>
+<li>\(n=900\)</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-15">
+  <h3>Example 95% Confidence Interval Proportion:</h3>
+  <p>Solution: </p>
+
+<ul>
+<li>Equation: \(P_s \pm z_{\frac{\alpha}{2}}*\sqrt{\frac{P_p*Q_p}{n}}\)</li>
+<li>Upper limit is: \(.53 + 1.96*\sqrt{\frac{(.53)*(.47)}{900}}\)</li>
+<li>\(.53 + 1.96 \sqrt{\frac{.2491}{900}}\) = \(.53 + 1.96 \sqrt{.00028}\)</li>
+<li>\(.53 + 1.96(.0167)\) = \(.53 + .0327\) = \(0.5627\)</li>
+<li>Lower limit is: \(.53-.0327=0.4973\)</li>
+<li>Confidence Interval: (\(0.4973\), \(.05627\))</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-16">
+  <h2>Review Conf. Intervals: Small</h2>
+  <p>Equation: \(\mu_{\bar{x}} \pm t_{\frac{\alpha}{2}}* \sigma_{\bar{x}}\)</p>
+
+<ul>
+<li>Example: find a 99% confidence interval for the true population average. The sample \(S={229, 255, 280, 203, 229}\).</li>
+<li>Find the mean: \(\frac{229+225+280+203+229}{5}\) = \(239.2\)</li>
+<li>Find \(\hat{\sigma}\): \(\sqrt{\frac{\Sigma(x-\bar{x})^2}{n-1}}\)=\(29.3\)</li>
+<li>DF= n-1=5-1=4</li>
+<li>\(t_\frac{\alpha}{2}\) for a two-tailed test with .01 level of significance (from the 99% confidence interval)=\(4.604\)</li>
+<li>Upper Solution: \(239.2 + 4.604(\frac{29.3}{\sqrt{5}})\)=\(299.5\)</li>
+<li>Lower Solution: \(239.2 - 4.604(\frac{29.3}{\sqrt{5}})\)=\(178.9\)</li>
+<li>Confidence Interval: (\(178.9\), \(299.5\))</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-17">
+  <h2>New Task: Preparing for analysis</h2>
+  <p>Visit the class portal and locate the spreadsheet in the writing analysis section. I am including instructions for you so that you can start your analysis portion of the writing project. You will be working on this alone, however, if your topics are similar, you may talk about the project and engage in scholarly research techniques. Unfortunately, if you do not complete this paper on your own, you will not meet the criteria for any grade above a C. You must conduct a different and separate analysis from your peers.  I.E. EACH ANALYSIS CONDUCTED BY A STUDENT MUST NOT BE THE SAME EXACT ANALYSIS. </p>
+
+<p>You should also begin shaping your operational/conceptual definitions with the items in the data set. Specifically, for the variables that you identify as being a component of what you wish to study.</p>
+
+<p>Please visit the class website, locate the Writing Assignment folder, locate the Assigned Data and Data locations. For some of you, you will be using the items already presented on the course website. Most of you will be locating the data by using the links provided to download the data. </p>
+
+</section>
+<section class="slide " id="slide-18">
+  <h2>Upcoming Items:</h2>
+  <ul>
+<li>Chapter 13 and 14</li>
+<li>Homework 4 and 5</li>
+<li>Exam 2</li>
+<li>Writing Projects</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-19">
+  
+  
+</section>
+</body>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+    /
+  <span class="deck-status-total"></span>
+  </p>
+  
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+  	<label for="goto-slide">Go to slide:</label>
+  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  	<datalist id="goto-datalist"></datalist>
+  	<input type="submit" value="Go">
+  </form>
+  
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  
+  
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
+  
+  <!-- Add Slide Class to Build Elements -->
+  <script type='text/javascript'>
+  $('ol.build li').addClass('slide')
+  $('ul.build li').addClass('slide')
+  </script>
+  
+  <!-- Deck Core and extensions -->
+  <script src="libraries/frameworks/deckjs/core/deck.core.js"></script>
+  <script src="libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
+<!-- Initialize the deck -->
+  <script>
+  $(function() {
+  	$.deck('.slide');
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>   
+
+</html>
